@@ -1,8 +1,9 @@
 # KAIST ME Capstone1 2021 Spring Team B
 
-KAIST 2021 Spring Capstone Design 1
+KAIST 2021 Spring Capstone Design 1, Team B
 
 This is a repository for capstone design 1 Team B codes. 
+
 To download the package, write the command below in ~/catkin_ws/src terminal.
 ```console
 git clone https://github.com/Anjulo/kaist_capstone_design1_2021.git
@@ -15,6 +16,7 @@ In this Capstone Design, we designed and built a mobile robot system that can ac
 ## lane tracing
 
 Node for detecting and tracinga lane
+
 It publishes the information of lane position with respect to the robot helps it navigate in the entrance region, in addition to the lidar localization and maping. 
 #### Usage
 
