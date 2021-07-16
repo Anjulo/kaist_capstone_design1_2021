@@ -1,0 +1,12 @@
+Command
+
+catkin_make
+source devel/setup.bash	//this command is used if and only if the system cannot find the package
+
+rosrun lane_detection lane_detect_node //these 3 are for line tracing
+rosrun depth_node depth_node
+rosrun data_integrate line_trace_node
+
+rosrun ball_detection ball_detect_node  //these 2 are for ball harvesting
+rosrun data_integrate data_integration_node
+

@@ -1,0 +1,7 @@
+<launch>
+	<node pkg="data_integrate" type="data_integration_node" name="data_integration_node">
+	<node pkg="data_integrate" type="data_integration_node" name="line_trace_node">
+	<node pkg="ball_detection" type="ball_detect_node_tB" name="ball_detect_node_tB">
+	<node pkg="lane_detection" type="lane_detect_node" name="lane_detect_node">
+	<node pkg="depth_node" type="depth_node" name="depth_node">
+</launch>

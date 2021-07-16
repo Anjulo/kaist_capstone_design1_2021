@@ -1,0 +1,9 @@
+Command
+
+catkin_make
+source devel/setup.bash	//this command is used if and only if the system cannot find the package
+
+
+rosrun ball_detection ball_detect_node_tB  //these 2 are for ball harvesting
+rosrun data_integrate data_integration_node
+
