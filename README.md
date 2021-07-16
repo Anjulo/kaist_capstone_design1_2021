@@ -124,7 +124,7 @@ rosrun robot_teleop wheel_teleop_key
 
 ## Members
 
-    1.  [Bereket Yisehak]
+    1.  Bereket Yisehak
 	2.  Jeong WooJin
 	3.  Jang SeungHeun
 	4.  Jeong SeoHee
