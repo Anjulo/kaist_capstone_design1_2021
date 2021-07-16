@@ -1,0 +1,5 @@
+rosrun data_integrate data_integration_node
+rosrun lane_detection lane_detect_node
+rosrun ball_detection ball_detect_node
+rosrun depth_node depth_node
+rosrun data_integrate line_trace_node

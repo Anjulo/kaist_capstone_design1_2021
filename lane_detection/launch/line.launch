@@ -1,0 +1,3 @@
+<launch>
+<node pkg="lane_detection" type="lane_detect_node" name="lane_detect_node"/>
+</launch>

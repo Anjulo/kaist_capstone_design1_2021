@@ -1,0 +1,3 @@
+<launch>
+	<node pkg="ball_detection" type="ball_detect_node" name="ball_detect_node"/>
+</launch>

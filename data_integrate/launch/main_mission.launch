@@ -1,0 +1,7 @@
+<launch>
+	<include file="$(find lane_detection)/launch/line.launch"/>
+	<node pkg="data_integrate" type="data_integration_node" name="line_trace_node"/>
+	<include file="$(find ball_detection)/launch/ballmain.launch"/>
+	<include file="$(find depth_node)/launch/depth.launch"/>
+	<node pkg="data_integrate" type="data_integration_node" name="data_integration_node"/>
+</launch>

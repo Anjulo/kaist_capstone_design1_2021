@@ -1,0 +1,168 @@
+#!/usr/bin/env python
+
+# Copyright (c) 2011, Willow Garage, Inc.
+# All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#
+#    * Redistributions of source code must retain the above copyright
+#      notice, this list of conditions and the following disclaimer.
+#    * Redistributions in binary form must reproduce the above copyright
+#      notice, this list of conditions and the following disclaimer in the
+#      documentation and/or other materials provided with the distribution.
+#    * Neither the name of the Willow Garage, Inc. nor the names of its
+#      contributors may be used to endorse or promote products derived from
+#       this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+# ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+# LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+# INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+# CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+# ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+# POSSIBILITY OF SUCH DAMAGE.
+
+import rospy
+from std_msgs.msg import Float64 as joint_command
+import sys, select, os
+if os.name == 'nt':
+  import msvcrt
+else:
+  import tty, termios
+
+msg = """
+Control Your Gripper!
+---------------------------
+
+  i
+ 
+j s l
+
+  k
+
+CTRL-C to quit
+"""
+
+e = """
+Communications Failed
+"""
+
+def getKey():
+    if os.name == 'nt':
+      return msvcrt.getch()
+
+    tty.setraw(sys.stdin.fileno())
+    rlist, _, _ = select.select([sys.stdin], [], [], 0.1)
+    if rlist:
+        key = sys.stdin.read(1)
+    else:
+        key = ''
+
+    termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)
+    return key
+
+def vels(target_linear_vel_1, target_linear_vel_2):
+    return "currently:\tvel1 %s\t vel2 %s\t " % (target_linear_vel_1,target_linear_vel_2)
+
+
+if __name__=="__main__":
+    if os.name != 'nt':
+        settings = termios.tcgetattr(sys.stdin)
+
+    rospy.init_node('prismatic_teleop_key')
+    pub_p1 = rospy.Publisher('joint_v', joint_command, queue_size=10)
+    pub_p2 = rospy.Publisher('joint_h', joint_command, queue_size=10)
+
+
+    # motorHandles[1]=sim.getObjectHandle('joint_front_left_wheel')
+    # motorHandles[2]=sim.getObjectHandle('joint_front_right_wheel')
+    # motorHandles[3]=sim.getObjectHandle('joint_back_right_wheel')
+    # motorHandles[4]=sim.getObjectHandle('joint_back_left_wheel')
+    
+
+    status = 0
+    target_linear_vel   = 0.0
+    target_angular_vel  = 0.0
+    control_linear_vel  = 0.0
+    control_angular_vel = 0.0
+    target_angle = 0.0
+
+    target_linear_vel_1   = 0.0
+    target_linear_vel_2   = 0.0
+
+    const = 0.07
+    try:
+        print(msg)
+        while(1):
+            key = getKey()
+            if key == 'i' :
+                target_linear_vel_1 = const
+                status = status + 1
+                print(vels(target_linear_vel_1, target_linear_vel_2))
+            elif key == 'j' :
+                target_linear_vel_2 = const
+                status = status + 1
+                print(vels(target_linear_vel_1, target_linear_vel_2))
+
+            elif key == 'k' :
+                target_linear_vel_1 = -const
+                status = status + 1
+                print(vels(target_linear_vel_1, target_linear_vel_2))
+            elif key == 'l' :
+                target_linear_vel_2 = -const
+                status = status + 1
+                print(vels(target_linear_vel_1, target_linear_vel_2))
+
+
+
+            elif key == 's' :
+
+                target_linear_vel_1   = 0.0
+                target_linear_vel_2   = 0.0
+
+                print(vels(target_linear_vel_1, target_linear_vel_2))
+
+            else:
+                if (key == '\x03'):
+                    break
+
+            if status == 20 :
+                print(msg)
+                status = 0
+
+            command_p1 = joint_command()
+            command_p2 = joint_command()
+
+            command_p1.data = target_linear_vel_1
+            command_p2.data = target_linear_vel_2
+
+            pub_p1.publish(command_p1)
+            pub_p2.publish(command_p2)
+
+
+    except:
+        print(e)
+
+    finally:
+            command_p1 = joint_command()
+            command_p2 = joint_command()
+            
+            command_p1.data = 0.0
+            command_p2.data = 0.0
+
+            pub_p1.publish(command_p1)
+            pub_p2.publish(command_p2)
+
+
+            # command_left_wheel.data = 0.0
+            # command_right_wheel.data = 0.0
+            # pub_left_wheel.publish(command_left_wheel)
+            # pub_right_wheel.publish(command_right_wheel)
+
+    if os.name != 'nt':
+        termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)

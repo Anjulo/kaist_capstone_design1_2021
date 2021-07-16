@@ -1,0 +1,3 @@
+<launch>
+<node pkg="depth_node" type="depth_node" name="depth_node"/>
+</launch>

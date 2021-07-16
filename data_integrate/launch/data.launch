@@ -1,0 +1,6 @@
+<launch>
+
+<node pkg="data_integrate" type="data_integration_node" name="data_integration_node"/>
+<node pkg="data_integrate" type="data_integration_node" name="line_trace_node"/>
+
+</launch>
