@@ -124,10 +124,10 @@ rosrun robot_teleop wheel_teleop_key
 
 ## Members
 
-    1.  [Bereket Yisehak](https://github.com/Anjulo)
+    	1.  [Bereket Yisehak](https://github.com/Anjulo)        [I'm an inline-style link](https://www.google.com)
 	2.  Jeong WooJin
 	3.  Jang SeungHeun
 	4.  Jeong SeoHee
 	5.  Kim GaHyun
-    6.  Choi YoungSuk
-	6.  Sabuhi Mikayilov
+    	6.  Choi YoungSuk
+	7.  Sabuhi Mikayilov
