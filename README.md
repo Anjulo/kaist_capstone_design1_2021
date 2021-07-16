@@ -2,11 +2,15 @@
 
 KAIST 2021 Spring Capstone Design 1
 
-This is a repository for capstone design 1 Team B codes. Check the [documents](https://github.com/Anjulo/kaist_capstone_design1_2021/tree/main/documents) to know about the mission problem and presentation of our final solution. 
+This is a repository for capstone design 1 Team B codes. 
 To download the package, write the command below in ~/catkin_ws/src terminal.
 ```console
 git clone https://github.com/Anjulo/kaist_capstone_design1_2021.git
 ```
+## Mission
+
+In this Capstone Design, we designed and built a mobile robot system that can accomplish the given mission autonomously with no human intervention. The mobile robot system includes a vehicle platform equipped with actuators (for mobility and interactions) and sensors (for perception and navigation). The system also includes computer algorithms for vehicle autonomy including sensor data processing, automatic control and associated decision making. We designed and developed the system in a virtual simulation environment using software tools such as SolidWorks, Coppeliasim and ROS with OpenCV.
+Check the [documents](https://github.com/Anjulo/kaist_capstone_design1_2021/tree/main/documents) to know about the mission problem and presentation of our final solution.
 
 ## lane tracing
 
@@ -139,10 +143,10 @@ rosrun robot_teleop wheel_teleop_key
 
 ## Members
 
-    1.  Bereket Yisehak
-	2.  Jeong WooJin
-	3.  Jang SeungHeun
-	4.  Jeong SeoHee
-	5.  Kim GaHyun
-    6.  Choi YoungSuk
-	7.  Sabuhi Mikayilov
+1.  [Bereket Yisehak] (http://github.com/Anjulo/)
+2.  Jeong WooJin
+3.  Jang SeungHeun
+4.  Jeong SeoHee
+5.  Kim GaHyun
+6.  Choi YoungSuk
+7.  Sabuhi Mikayilov
