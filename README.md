@@ -2,14 +2,28 @@
 
 KAIST 2021 Spring Capstone Design 1
 
-This is a repository for capstone design 1 Team B codes. 
-
+This is a repository for capstone design 1 Team B codes. Check the documents folder to know about the mission problem and presentation of our final solution. 
 To download the package, write the command below in ~/catkin_ws/src terminal.
 ```console
 git clone https://github.com/Anjulo/kaist_capstone_design1_2021.git
 ```
 
-## ball_detection
+## lane tracing
+
+Node for detecting and tracinga lane
+It publishes the information of lane position with respect to the robot helps it navigate in the entrance region, in addition to the lidar localization and maping. 
+#### Usage
+
+The nodes needed to run for lane tracing are:
+
+```console
+rosrun lane_detection lane_detect_node
+rosrun depth_node depth_node
+rosrun data_integrate line_trace_node
+```
+
+
+## Ball Harvesting
 
 Node for detecting red and yellow balls.
 
@@ -17,11 +31,12 @@ It publishes the information of ball position and color by calculating geometry 
 
 #### Usage
 
+The nodes needed to run for Ball Harvesting are:
+
 ```console
-rosrun ball_detection ball_detection_node
+rosrun ball_detection ball_detect_node
+rosrun data_integrate data_integration_node
 ```
-
-
 
 ## coppeliasim_models
 
