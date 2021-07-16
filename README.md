@@ -2,7 +2,7 @@
 
 KAIST 2021 Spring Capstone Design 1
 
-This is a repository for capstone design 1 Team B codes. Check the documents folder to know about the mission problem and presentation of our final solution. 
+This is a repository for capstone design 1 Team B codes. Check the [documents](.../documents) to know about the mission problem and presentation of our final solution. 
 To download the package, write the command below in ~/catkin_ws/src terminal.
 ```console
 git clone https://github.com/Anjulo/kaist_capstone_design1_2021.git
