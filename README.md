@@ -2,7 +2,7 @@
 
 KAIST 2021 Spring Capstone Design 1, Team B
 
-This is a repository for capstone design 1 Team B codes. 
+This is a repository for capstone design 1 Team B codes and final presentation. 
 
 To download the package, write the command below in ~/catkin_ws/src terminal.
 ```console
@@ -46,57 +46,11 @@ rosrun data_integrate data_integration_node
 
 ## coppeliasim_models
 
-The map models(.ttt) and  robot & sensor models(.ttm) are provided.
+The map models(.ttt) and  robot & sensor models(.ttm) are [provided](https://github.com/anjulo/Capstone1_2021Spring) by KAIST ME405 TAs. (map_ver_x.ttt, bonus_map.ttt, my_robot_ver_x.ttm files)
 
-map_ver_x.ttt, bonus_map.ttt, my_robot_ver_x.ttm files
+We have designed our own robot. (B_Final.ttm)
 
 Just drag and drop files to coppeliasim window.
-
-For reference, urdf file for my_robot is uploaded.
-
-1. mylidar_hokuyo.ttm
-
-- ROS
-
-frame : base_scan
-
-topic : /scan
-
-msg type : sensor_msgs::LaserScan
-
-- Lidar specs
-
-rate : 5Hz
-
-resolution : 1 deg -> 360 points per 1 scan
-
-min range : 0.12 m
-
-max range : 3.5 m
-
-
-2. myimu.ttm
-
-- ROS
-
-frame : imu
-
-topic : /imu
-
-msg type : sensor_msgs::Imu
-
-
-3. mykinect.ttm
-
-- Camera parameters
-
-FOV (field of view) : 57 deg
-
-W : 640 pixels
-
-H : 480 pixels
-
-f : 589.37 pixels
 
 
 ## core_msgs
@@ -133,13 +87,6 @@ rosrun robot_teleop prismatic_teleop_key
 # wheel
 rosrun robot_teleop wheel_teleop_key
 ```
-
-
-## Tips
-
-- If the prismatic joint fall down, check "Lock motor when target velocity is zero" in Joint Dynamic Properties in CoppeliaSim.
-- Click "Toggle real-time mode" when you test your algorithms in simulator.
-- ...
 
 
 
