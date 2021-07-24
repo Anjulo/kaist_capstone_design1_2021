@@ -13,6 +13,8 @@ git clone https://github.com/Anjulo/kaist_capstone_design1_2021.git
 In this Capstone Design, we designed and built a mobile robot system that can accomplish the given mission autonomously with no human intervention. The mobile robot system includes a vehicle platform equipped with actuators (for mobility and interactions) and sensors (for perception and navigation). The system also includes computer algorithms for vehicle autonomy including sensor data processing, automatic control and associated decision making. We designed and developed the system in a virtual simulation environment using software tools such as SolidWorks, Coppeliasim and ROS with OpenCV.
 - Check the [documents](https://github.com/Anjulo/kaist_capstone_design1_2021/tree/main/documents) to read more about the mission problem and presentation of our final solution.
 
+
+
 ## lane tracing
 
 Node for detecting and tracinga lane
