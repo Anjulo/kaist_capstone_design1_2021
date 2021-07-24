@@ -43,11 +43,20 @@ git clone https://github.com/Anjulo/kaist_capstone_design1_2021.git
  ```console
  catkin build 
  ```
-## Run
+## Launch
 
-- Run all components at once
+- Run the main mission 
+
+```console
+roslaunch data_integrate main_mission.launch
+```
+
+- Run the bonus mission 
+
+```console
+roslaunch data_integrate bonus_mission.launch
+```
  
-
 ## lane tracing
 
 Node for detecting and tracinga lane
