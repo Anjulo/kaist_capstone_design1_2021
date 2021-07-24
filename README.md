@@ -56,13 +56,14 @@ roslaunch data_integrate main_mission.launch
 ```console
 roslaunch data_integrate bonus_mission.launch
 ```
- 
-## lane tracing
+## Nodes
+
+#### lane tracing
 
 Node for detecting and tracinga lane
 
 It publishes the information of lane position with respect to the robot helps it navigate in the entrance region, in addition to the lidar localization and maping. 
-#### Usage
+###### Usage
 
 The nodes needed to run for lane tracing are:
 
@@ -73,13 +74,13 @@ rosrun data_integrate line_trace_node
 ```
 
 
-## Ball Harvesting
+#### Ball Harvesting
 
 Node for detecting red and yellow balls.
 
 It publishes the information of ball position and color by calculating geometry between the robot and balls.
 
-#### Usage
+###### Usage
 
 The nodes needed to run for Ball Harvesting are:
 
@@ -88,7 +89,7 @@ rosrun ball_detection ball_detect_node
 rosrun data_integrate data_integration_node
 ```
 
-## coppeliasim_models
+#### coppeliasim_models
 
 The map models(.ttt) and  robot & sensor models(.ttm) are [provided](https://github.com/anjulo/Capstone1_2021Spring) by KAIST ME405 TAs. (map_ver_x.ttt, bonus_map.ttt, my_robot_ver_x.ttm files)
 
@@ -97,7 +98,7 @@ We have designed our own robot. (B_Final.ttm)
 Just drag and drop files to coppeliasim window.
 
 
-## core_msgs
+#### core_msgs
 
 A package for defining custom messages used in all codes.
 
@@ -105,12 +106,12 @@ ex) ball_position.msg
 
 
 
-## data_integrate
+#### data_integrate
 
 Subscribing lidar(laser_scan) and camera data and do something
 
 
-#### Usage
+###### Usage
 
 ```console
 # data integrate
@@ -119,11 +120,11 @@ rosrun data_integrate data_integrate_node
 rosrun data_integrate data_show_node
 ```
 
-## robot_teleop
+#### robot_teleop
 
 Nodes for manually manipulating the gripper and robot wheels.
 
-#### Usage
+###### Usage
 
 ```console
 # gripper
