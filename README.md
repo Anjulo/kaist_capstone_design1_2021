@@ -137,9 +137,9 @@ ex) ball_position.msg
 ## Members
 
 1.  [Bereket Yisehak](http://github.com/Anjulo/)
-2.  Jeong WooJin
-3.  Jang SeungHeun
-4.  Jeong SeoHee
-5.  Kim GaHyun
-6.  Choi YoungSuk
-7.  Sabuhi Mikayilov
+2.  WooJin Jeong
+3.  SeungHeun Jang
+4.  SeoHee Jeong
+5.  GaHyun Kim
+6.  YoungSuk Choi
+7.  [Sabuhi Mikayilov](https://www.linkedin.com/in/sabuhi-mikayilov-8b7493196/)
